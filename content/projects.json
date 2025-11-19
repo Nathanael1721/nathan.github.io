@@ -2,24 +2,28 @@
   "items": [
     {
       "title": "Edge Computing for Smart Agriculture",
-      "kicker": "Edge • IoT • Raspberry Pi",
+      "kicker": "EDGE • IOT • RASPBERRY PI",
       "summary": "Edge system untuk pengolahan data sensor di lahan, buffer saat internet putus, dan sinkronisasi ke cloud.",
+      "details": "Di proyek ini aku mendesain arsitektur end-to-end: sensor → Raspberry Pi 5 → buffer lokal → cloud. Fokus utama: mengurangi kehilangan data saat link internet tidak stabil dan menjaga respon aktuator tetap cepat di sisi edge.",
       "bullets": [
         "Raspberry Pi 5 sebagai edge node",
         "MQTT untuk komunikasi sensor–cloud",
         "Buffer lokal saat koneksi terputus",
         "Grafana dashboard untuk visualisasi"
-      ]
+      ],
+      "image": "/assets/uploads/edge-agri.jpg"
     },
     {
       "title": "Drone VTOL Platform",
-      "kicker": "UAV • Ardupilot • MAVLink",
+      "kicker": "UAV • ARDUPILOT • MAVLINK",
       "summary": "Platform VTOL untuk eksperimen flight control dan mapping.",
+      "details": "Konfigurasi Pixhawk + Ardupilot, tuning flight mode VTOL, dan integrasi ke ground control station. Basis untuk eksperimen object detection dan mapping indoor/outdoor.",
       "bullets": [
         "Pixhawk autopilot + Ardupilot",
         "Tuning flight mode dan failsafe",
         "Integrasi dengan ground control station"
-      ]
+      ],
+      "image": "/assets/uploads/vtol-drone.jpg"
     }
   ]
 }

@@ -162,76 +162,23 @@
     <section id="research" class="section section-alt">
       <div class="container">
         <h2>Research & Publications</h2>
-        <div class="research-list">
-          <article class="research-item">
-            <h3>Machine Learning-based EMI Prediction</h3>
-            <p>
-              Explores ensemble learning techniques to predict electromagnetic interference (EMI)
-              spectra for LED driver circuits, improving accuracy over baseline models.
-            </p>
-            <p class="research-meta">
-              Roles: data preprocessing, model evaluation, and interpretation of results.  
-              Published in peer-reviewed venues (IEEE and journals).
-            </p>
-          </article>
-
-          <article class="research-item">
-            <h3>Smart Tire Monitoring System</h3>
-            <p>
-              Designed a tire monitoring system using cloud and Docker-based infrastructure to
-              collect and visualize sensor data in near real-time.
-            </p>
-          </article>
-
-          <article class="research-item">
-            <h3>Rectenna Wireless Energy Harvesting</h3>
-            <p>
-              Worked on RF energy harvesting with rectenna-based circuits, focusing on system
-              assembly and measurement for low-power scenarios.
-            </p>
-          </article>
+        <div id="researchList" class="research-list">
+          <!-- JS render -->
         </div>
       </div>
     </section>
+
 
     <!-- Experience -->
     <section id="experience" class="section">
       <div class="container">
         <h2>Experience</h2>
-        <div class="timeline">
-          <div class="timeline-item">
-            <h3>DevOps Engineer Intern</h3>
-            <p class="timeline-org">PT Telekomunikasi Indonesia</p>
-            <p class="timeline-meta">2024 – 2024 | Jakarta, Indonesia</p>
-            <ul>
-              <li>Built CI/CD pipelines with Bitbucket Pipelines for containerized applications.</li>
-              <li>Deployed services on Kubernetes clusters and maintained monitoring with Grafana and Datadog.</li>
-              <li>Contributed to DevSecOps implementation and documentation of servers and services.</li>
-            </ul>
-          </div>
-
-          <div class="timeline-item">
-            <h3>IoT Programmer Intern</h3>
-            <p class="timeline-org">PT Vascomm Solusi Teknologi</p>
-            <p class="timeline-meta">2020 | Malang, Indonesia</p>
-            <ul>
-              <li>Developed and researched LoRa-based communication for IoT systems.</li>
-              <li>Configured and tested different communication modes for field deployments.</li>
-            </ul>
-          </div>
-
-          <div class="timeline-item">
-            <h3>Teaching Factory / Server Monitoring</h3>
-            <p class="timeline-org">PT Beon Intermedia (Jagoan Hosting)</p>
-            <p class="timeline-meta">2020 – 2021 | Malang, Indonesia</p>
-            <ul>
-              <li>Monitored server errors using Grafana, Prometheus, and Alerta.</li>
-              <li>Produced tutorials and supported Linux server management.</li>
-            </ul>
-          </div>
+        <div id="experienceTimeline" class="timeline">
+          <!-- JS render -->
         </div>
       </div>
     </section>
+
 
     <!-- Contact -->
     <section id="contact" class="section section-alt">
@@ -272,6 +219,26 @@
       <span>Built with HTML, CSS, and vanilla JS</span>
     </div>
   </footer>
+
+  <div id="projectModal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop" id="projectModalBackdrop"></div>
+    <div class="modal-dialog">
+      <button class="modal-close" id="projectModalClose" aria-label="Close">×</button>
+      <div class="modal-inner">
+        <div class="modal-image-wrapper" id="projectModalImageWrapper">
+          <img id="projectModalImage" alt="" />
+        </div>
+        <div class="modal-body">
+          <p id="projectModalKicker" class="card-kicker"></p>
+          <h3 id="projectModalTitle"></h3>
+          <p id="projectModalSummary"></p>
+          <p id="projectModalDetails"></p>
+          <ul id="projectModalBullets" class="card-list"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <script src="js/main.js"></script>
 </body>

@@ -1,13 +1,9 @@
 backend:
   name: git-gateway
-  #repo: Nathanael1721/nathan.github.io   # ganti
-  branch: main                                # atau nama branch deploy
+  branch: main
 
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
-
-site_url: "https://nathanael1721.github.io/nathan.github.io/"     # ganti ke domain final
-display_url: "https://nathanael1721.github.io/nathan.github.io/"
 
 collections:
   - name: "projects"
@@ -25,7 +21,56 @@ collections:
             fields:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Kicker", name: "kicker", widget: "string", required: false }
+              - { label: "Short Summary", name: "summary", widget: "text" }
+              - { label: "Details (Modal)", name: "details", widget: "text", required: false }
+              - { label: "Image", name: "image", widget: "image", required: false }
+              - label: "Bullets"
+                name: "bullets"
+                widget: "list"
+                required: false
+                field: { label: "Item", name: "item", widget: "string" }
+
+  - name: "research"
+    label: "Research & Publications"
+    files:
+      - file: "content/research.json"
+        label: "Research List"
+        name: "research"
+        extension: "json"
+        format: "json"
+        fields:
+          - label: "Entries"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Venue / Journal", name: "venue", widget: "string" }
+              - { label: "Year", name: "year", widget: "string" }
               - { label: "Summary", name: "summary", widget: "text" }
+              - { label: "Link", name: "link", widget: "string", required: false }
+              - label: "Tags"
+                name: "tags"
+                widget: "list"
+                required: false
+                field: { label: "Tag", name: "tag", widget: "string" }
+
+  - name: "experience"
+    label: "Experience"
+    files:
+      - file: "content/experience.json"
+        label: "Experience Timeline"
+        name: "experience"
+        extension: "json"
+        format: "json"
+        fields:
+          - label: "Entries"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Role", name: "role", widget: "string" }
+              - { label: "Organization", name: "org", widget: "string" }
+              - { label: "Location", name: "location", widget: "string", required: false }
+              - { label: "Period", name: "period", widget: "string" }
               - label: "Bullets"
                 name: "bullets"
                 widget: "list"

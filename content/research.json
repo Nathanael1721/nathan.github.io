@@ -1,0 +1,28 @@
+{
+  "items": [
+    {
+      "title": "Machine Learning-based EMI Spectrum Prediction",
+      "venue": "IEEE",
+      "year": "2025",
+      "summary": "Menggunakan ensemble learning untuk memprediksi spektrum EMI pada LED driver circuits dan meningkatkan akurasi dibanding baseline.",
+      "link": "https://ieeexplore.ieee.org/abstract/document/10862438",
+      "tags": ["EMI", "Ensemble Learning", "LED Driver"]
+    },
+    {
+      "title": "Ensemble Learning Techniques for Improved Electromagnetic Interference Prediction in LED Driver Circuits",
+      "venue": "IIETA (MMEP Journal)",
+      "year": "2025",
+      "summary": "Studi lanjutan yang mengevaluasi beberapa teknik ensemble untuk prediksi EMI dengan variasi arsitektur dan metrik.",
+      "link": "https://iieta.org/journals/mmep/paper/10.18280/mmep.120316",
+      "tags": ["EMI", "Machine Learning"]
+    },
+    {
+      "title": "Smart Tire Monitoring System using Cloud and Docker Container Technology",
+      "venue": "INFORM Journal",
+      "year": "2025",
+      "summary": "Sistem monitoring tekanan ban berbasis cloud dengan infrastruktur Docker untuk collect dan visualisasi data real-time.",
+      "link": "https://doi.org/10.25139/inform.v10i2.9269",
+      "tags": ["IoT", "Cloud", "Docker"]
+    }
+  ]
+}

@@ -485,3 +485,123 @@ a:hover {
     align-items: flex-start;
   }
 }
+
+.card-clickable {
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+}
+
+.card-clickable:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+  border-color: rgba(79, 209, 197, 0.7);
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 40;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.modal-dialog {
+  position: relative;
+  max-width: 760px;
+  width: calc(100% - 2.5rem);
+  z-index: 41;
+}
+
+.modal-inner {
+  background: rgba(9, 11, 20, 0.97);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7);
+  padding: 1.5rem 1.5rem 1.7rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.7fr);
+  gap: 1.4rem;
+}
+
+.modal-image-wrapper {
+  border-radius: 16px;
+  overflow: hidden;
+  background: #101322;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-body h3 {
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+}
+
+.modal-body p {
+  margin-top: 0.4rem;
+  margin-bottom: 0.6rem;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.7rem;
+  border: none;
+  background: transparent;
+  color: var(--fg-muted);
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  color: var(--accent);
+}
+
+#projectModalBullets {
+  margin-top: 0.6rem;
+}
+
+/* Responsive modal */
+@media (max-width: 800px) {
+  .modal-inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .modal-dialog {
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+}
+
+.tag-row {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.tag-pill {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--fg-muted);
+}
