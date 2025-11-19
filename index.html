@@ -7,6 +7,26 @@
   <meta name="description" content="Portfolio of Nathanael Tjahyadi, IoT, Edge Computing, and DevOps Engineer.">
   <link rel="stylesheet" href="css/style.css" />
 </head>
+
+
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", function (user) {
+      // kalau datang dari email invite (#invite_token=...)
+      if (!user && window.location.hash && window.location.hash.indexOf("invite_token") >= 0) {
+        // buka modal signup untuk set password
+        window.netlifyIdentity.open("signup");
+      }
+    });
+
+    window.netlifyIdentity.on("login", function () {
+      // setelah login, arahkan ke halaman admin
+      document.location.href = "/admin/";
+    });
+  }
+</script>
+
 <body>
   <header class="site-header">
     <div class="container header-inner">
