@@ -22,8 +22,17 @@
         "Pixhawk autopilot + Ardupilot",
         "Tuning flight mode dan failsafe",
         "Integrasi dengan ground control station"
+<<<<<<< HEAD
       ],
       "image": "/assets/uploads/vtol-drone.jpg"
+=======
+      ]
+    },
+    {
+      "title": "Test 123",
+      "kicker": "123",
+      "summary": "123"
+>>>>>>> 2d72ba9d27ce8166fde6f39b8a4c5f2befe1ab41
     }
   ]
 }
