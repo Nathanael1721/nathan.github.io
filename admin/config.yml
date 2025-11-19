@@ -1,6 +1,6 @@
 backend:
-  name: github
-  repo: Nathanael1721/nathan.github.io   # ganti
+  name: git-gateway
+  #repo: Nathanael1721/nathan.github.io   # ganti
   branch: main                                # atau nama branch deploy
 
 media_folder: "assets/uploads"
