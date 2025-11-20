@@ -25,42 +25,59 @@ async function loadProjects() {
   if (!container) return;
 
   try {
-    const res = await fetch("content/projects.json", { cache: "no-store" });
-    if (!res.ok) throw new Error("Failed to load projects.json");
+    const res = await fetch("content/projects.json");
+    if (!res.ok) throw new Error("Failed to fetch projects");
     const data = await res.json();
-    const items = data.items || [];
+    const items = Array.isArray(data.items) ? data.items : [];
 
-    container.innerHTML = "";
+    container.innerHTML = items
+      .map((item, index) => {
+        const title = item.title || "";
+        const kicker = item.kicker || "";
+        const summary = item.summary || "";
+        const bullets = normalizeBullets(item.bullets);
 
-    items.forEach((item) => {
-      const card = document.createElement("article");
-      card.className = "card";
+        const imgs = normalizeImages(item);
+        const thumb = imgs.length ? imgs[0] : "";
 
-      const bulletsHtml = (item.bullets || [])
-        .map((b) => `<li>${b}</li>`)
-        .join("");
+        return `
+          <article class="card card-clickable" data-index="${index}">
+            ${
+              thumb
+                ? `<div class="card-image-wrapper">
+                     <img src="${thumb}" alt="${title} thumbnail">
+                   </div>`
+                : ""
+            }
+            ${
+              kicker
+                ? `<p class="card-kicker">${kicker}</p>`
+                : ""
+            }
+            <h3>${title}</h3>
+            ${
+              summary
+                ? `<p>${summary}</p>`
+                : ""
+            }
+            ${
+              bullets.length
+                ? `<ul class="card-list">
+                     ${bullets.map((b) => `<li>${b}</li>`).join("")}
+                   </ul>`
+                : ""
+            }
+          </article>
+        `;
+      })
+      .join("");
 
-      card.innerHTML = `
-        <h3>${item.title || ""}</h3>
-        ${item.kicker ? `<p class="card-kicker">${item.kicker}</p>` : ""}
-        ${item.summary ? `<p>${item.summary}</p>` : ""}
-        ${
-          bulletsHtml
-            ? `<ul class="card-list">
-                 ${bulletsHtml}
-               </ul>`
-            : ""
-        }
-      `;
-
-      container.appendChild(card);
-    });
+    // event listener click card tetap seperti semula
   } catch (err) {
-    console.error(err);
-    container.innerHTML =
-      '<p style="color:#f87171;font-size:0.9rem;">Failed to load projects.</p>';
+    console.error("Error loading projects:", err);
   }
 }
+
 
 document.addEventListener("DOMContentLoaded", () => {
   // kode nav toggle + year sebelumnya
@@ -300,12 +317,10 @@ document.addEventListener("DOMContentLoaded", () => {
 function normalizeImages(item) {
   const imgs = [];
 
-  // 1) gambar legacy di "image" masuk dulu
   if (item.image) {
     imgs.push(item.image);
   }
 
-  // 2) gambar di "images" (bisa string atau object { src })
   if (Array.isArray(item.images)) {
     item.images.forEach((img) => {
       if (typeof img === "string") {
@@ -319,6 +334,7 @@ function normalizeImages(item) {
 
   return imgs;
 }
+
 
 
 function renderProjectModalImage() {
