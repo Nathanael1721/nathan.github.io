@@ -1,13 +1,12 @@
 backend:
   name: github
-  repo: Nathanael1721/nathan.github.io
+  repo: Nathanael1721/nathanael1721.github.io
   branch: main
-  base_url: "https://website.nathanaelcayadi.workers.dev"  # URL proxy
-  auth_endpoint: "auth"                            # route login
-  cms_label_prefix: "cms"                          # opsional
+  base_url: "https://website.nathanaelcayadi.workers.dev"
 
 site_url: "https://nathanael1721.github.io"
 display_url: "https://nathanael1721.github.io"
+
 
 
 media_folder: "assets/uploads"
