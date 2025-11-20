@@ -2,9 +2,9 @@
   "items": [
     {
       "title": "Edge Computing for Smart Agriculture",
-      "kicker": "EDGE • IOT • RASPBERRY PI",
-      "summary": "Edge system untuk pengolahan data sensor di lahan, buffer saat internet putus, dan sinkronisasi ke cloud.",
-      "details": "Di proyek ini aku mendesain arsitektur end-to-end: sensor → Raspberry Pi 5 → buffer lokal → cloud. Fokus utama: mengurangi kehilangan data saat link internet tidak stabil dan menjaga respon aktuator tetap cepat di sisi edge.",
+      "kicker": "Edge Computing • IoT • Raspberry PI",
+      "summary": "Edge system for processing sensor data on the ground, buffering when the internet is down, and synchronizing to the cloud.",
+      "details": "In this project, I designed an end-to-end architecture: sensor → Raspberry Pi 5 → local buffer → cloud. The main focus: reducing data loss during unstable internet connections and maintaining fast actuator response at the edge.",
       "bullets": [
         "Raspberry Pi 5 sebagai edge node",
         "MQTT untuk komunikasi sensor–cloud",
