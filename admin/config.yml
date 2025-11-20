@@ -3,16 +3,19 @@ backend:
   repo: Nathanael1721/nathanael1721.github.io
   branch: main
   base_url: "https://website.nathanaelcayadi.workers.dev"
+  auth_endpoint: "auth"       # WAJIB untuk Cloudflare Workers
 
 site_url: "https://nathanael1721.github.io"
 display_url: "https://nathanael1721.github.io"
-
-
 
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
 collections:
+
+  # --------------------------
+  # PROJECTS
+  # --------------------------
   - name: "projects"
     label: "Projects"
     files:
@@ -28,10 +31,10 @@ collections:
             fields:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Kicker", name: "kicker", widget: "string", required: false }
-              - { label: "Short Summary", name: "summary", widget: "text" }
+              - { label: "Short Summary", name: "summary", widget: "text", required: false }
               - { label: "Details (Modal)", name: "details", widget: "text", required: false }
 
-              # NEW: multi-image support
+              # MULTI IMAGE (carousel modal)
               - label: "Images"
                 name: "images"
                 widget: "list"
@@ -41,16 +44,23 @@ collections:
                   name: "src"
                   widget: "image"
 
-              # (opsional) tetap simpan single image lama untuk kompatibilitas
-              - { label: "Legacy Image (optional)", name: "image", widget: "image", required: false }
+              # THUMBNAIL fallback untuk kompatibilitas
+              - { label: "Thumbnail (Optional)", name: "image", widget: "image", required: false }
 
+              # BULLET POINTS
               - label: "Bullets"
                 name: "bullets"
                 widget: "list"
                 required: false
-                field: { label: "Item", name: "item", widget: "string" }
+                field:
+                  label: "Item"
+                  name: "item"
+                  widget: "string"
 
 
+  # --------------------------
+  # RESEARCH
+  # --------------------------
   - name: "research"
     label: "Research & Publications"
     files:
@@ -67,14 +77,21 @@ collections:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Venue / Journal", name: "venue", widget: "string" }
               - { label: "Year", name: "year", widget: "string" }
-              - { label: "Summary", name: "summary", widget: "text" }
+              - { label: "Summary", name: "summary", widget: "text", required: false }
               - { label: "Link", name: "link", widget: "string", required: false }
               - label: "Tags"
                 name: "tags"
                 widget: "list"
                 required: false
-                field: { label: "Tag", name: "tag", widget: "string" }
+                field:
+                  label: "Tag"
+                  name: "tag"
+                  widget: "string"
 
+
+  # --------------------------
+  # EXPERIENCE
+  # --------------------------
   - name: "experience"
     label: "Experience"
     files:
@@ -96,8 +113,15 @@ collections:
                 name: "bullets"
                 widget: "list"
                 required: false
-                field: { label: "Item", name: "item", widget: "string" }
+                field:
+                  label: "Item"
+                  name: "item"
+                  widget: "string"
 
+
+  # --------------------------
+  # EDUCATION
+  # --------------------------
   - name: "education"
     label: "Education"
     files:

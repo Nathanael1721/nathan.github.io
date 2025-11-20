@@ -2,7 +2,7 @@
   "items": [
     {
       "title": "Edge Computing for Smart Agriculture",
-      "kicker": "Edge Computing • IoT • Raspberry PI",
+      "kicker": "Edge Computing • IoT • Raspberry Pi",
       "summary": "Edge system for processing sensor data on the ground, buffering when the internet is down, and synchronizing to the cloud.",
       "details": "In this project, I designed an end-to-end architecture: sensor → Raspberry Pi 5 → local buffer → cloud. The main focus: reducing data loss during unstable internet connections and maintaining fast actuator response at the edge.",
       "bullets": [
@@ -11,22 +11,26 @@
         "Local buffer when disconnected (MySQL)",
         "Grafana dashboard for visualization"
       ],
-      "image": "/assets/uploads/diagram-blok-tugas-akhir-1-tugas-akhir.drawio.png",
+      "image": "/assets/uploads/20250116_92749ambygpsmapcamera.jpg",
       "images": [
-        "/assets/uploads/20250116_92749ambygpsmapcamera.jpg"
+        "/assets/uploads/20250116_92749ambygpsmapcamera.jpg",
+        "/assets/uploads/diagram-blok-tugas-akhir-1-tugas-akhir.drawio.png"
       ]
     },
     {
       "title": "Drone VTOL Platform",
-      "kicker": "UAV • ARDUPILOT • MAVLINK",
-      "summary": "VTOL quadcopter for autonomous flight experiments without GPS",
+      "kicker": "UAV • Ardupilot • MAVLink",
+      "summary": "VTOL quadcopter for autonomous flight experiments without GPS.",
       "details": "Pixhawk + Ardupilot configuration, VTOL flight mode tuning, and ground control station integration. A basis for autonomous flight experiments without GPS.",
       "bullets": [
         "Pixhawk autopilot + Ardupilot",
-        "DPS Denied Drone",
-        "Autonomous Flight"
+        "GPS-denied flight experiments",
+        "Autonomous mission and telemetry"
       ],
-      "image": "/assets/uploads/img_4692.jpg"
+      "image": "/assets/uploads/img_4692.jpg",
+      "images": [
+        "/assets/uploads/img_4692.jpg"
+      ]
     }
   ]
 }
