@@ -19,14 +19,14 @@
     {
       "title": "Drone VTOL Platform",
       "kicker": "UAV • ARDUPILOT • MAVLINK",
-      "summary": "Platform VTOL untuk eksperimen flight control dan mapping.",
-      "details": "Konfigurasi Pixhawk + Ardupilot, tuning flight mode VTOL, dan integrasi ke ground control station. Basis untuk eksperimen object detection dan mapping indoor/outdoor.",
+      "summary": "VTOL quadcopter for autonomous flight experiments without GPS",
+      "details": "Pixhawk + Ardupilot configuration, VTOL flight mode tuning, and ground control station integration. A basis for autonomous flight experiments without GPS.",
       "bullets": [
         "Pixhawk autopilot + Ardupilot",
-        "Tuning flight mode dan failsafe",
-        "Integrasi dengan ground control station"
+        "DPS Denied Drone",
+        "Autonomous Flight"
       ],
-      "image": "/assets/uploads/vtol-drone.jpg"
+      "image": "/assets/uploads/img_4692.jpg"
     }
   ]
 }
