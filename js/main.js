@@ -90,7 +90,14 @@ const modalSummary = document.getElementById("projectModalSummary");
 const modalDetails = document.getElementById("projectModalDetails");
 const modalBullets = document.getElementById("projectModalBullets");
 const modalImage = document.getElementById("projectModalImage");
-const modalImageWrapper = document.getElementById("projectModalImageWrapper");
+const modalMedia = document.getElementById("projectModalMedia");
+const modalCount = document.getElementById("projectModalCount");
+const modalPrev = document.getElementById("projectModalPrev");
+const modalNext = document.getElementById("projectModalNext");
+
+let currentImages = [];
+let currentImageIndex = 0;
+
 
 function openProjectModal(item) {
   if (!projectModal) return;
@@ -114,18 +121,15 @@ function openProjectModal(item) {
     modalBullets.style.display = "none";
   }
 
-  if (item.image) {
-    modalImage.src = item.image;
-    modalImage.alt = item.title || "Project image";
-    modalImageWrapper.style.display = "block";
-  } else {
-    modalImage.src = "";
-    modalImageWrapper.style.display = "none";
-  }
+  // images
+  currentImages = normalizeImages(item);
+  currentImageIndex = 0;
+  renderProjectModalImage();
 
   projectModal.classList.add("show");
   projectModal.setAttribute("aria-hidden", "false");
 }
+
 
 function closeProjectModal() {
   if (!projectModal) return;
@@ -292,3 +296,78 @@ document.addEventListener("DOMContentLoaded", () => {
   loadResearch();
   loadExperience();
 });
+
+function normalizeImages(item) {
+  const imgs = [];
+
+  // new format: images: [{ src: "/path" }, ...] atau ["path1", "path2"]
+  if (Array.isArray(item.images)) {
+    item.images.forEach((img) => {
+      if (typeof img === "string") {
+        imgs.push(img);
+      } else if (img && (img.src || img.path || img.url)) {
+        imgs.push(img.src || img.path || img.url);
+      }
+    });
+  }
+
+  // fallback ke single legacy image
+  if (!imgs.length && item.image) {
+    imgs.push(item.image);
+  }
+
+  return imgs;
+}
+
+function renderProjectModalImage() {
+  if (!modalImage || !modalMedia) return;
+
+  if (!currentImages.length) {
+    modalMedia.style.display = "none";
+    return;
+  }
+
+  modalMedia.style.display = "flex";
+
+  if (currentImageIndex < 0) currentImageIndex = 0;
+  if (currentImageIndex >= currentImages.length)
+    currentImageIndex = currentImages.length - 1;
+
+  const src = currentImages[currentImageIndex];
+  modalImage.src = src;
+  modalImage.alt = modalTitle.textContent || "Project image";
+
+  // counter
+  if (currentImages.length > 1) {
+    modalCount.textContent = `${currentImageIndex + 1} / ${currentImages.length}`;
+  } else {
+    modalCount.textContent = "";
+  }
+
+  // tombol prev/next
+  if (currentImages.length > 1) {
+    modalPrev.style.display = "flex";
+    modalNext.style.display = "flex";
+  } else {
+    modalPrev.style.display = "none";
+    modalNext.style.display = "none";
+  }
+}
+
+if (modalPrev) {
+  modalPrev.addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (!currentImages.length) return;
+    currentImageIndex = (currentImageIndex - 1 + currentImages.length) % currentImages.length;
+    renderProjectModalImage();
+  });
+}
+
+if (modalNext) {
+  modalNext.addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (!currentImages.length) return;
+    currentImageIndex = (currentImageIndex + 1) % currentImages.length;
+    renderProjectModalImage();
+  });
+}

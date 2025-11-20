@@ -220,24 +220,33 @@
     </div>
   </footer>
 
-  <div id="projectModal" class="modal" aria-hidden="true">
-    <div class="modal-backdrop" id="projectModalBackdrop"></div>
-    <div class="modal-dialog">
-      <button class="modal-close" id="projectModalClose" aria-label="Close">×</button>
-      <div class="modal-inner">
-        <div class="modal-image-wrapper" id="projectModalImageWrapper">
+<div id="projectModal" class="modal" aria-hidden="true">
+  <div class="modal-backdrop" id="projectModalBackdrop"></div>
+  <div class="modal-dialog">
+    <button class="modal-close" id="projectModalClose" aria-label="Close">×</button>
+
+    <div class="modal-inner">
+      <!-- MEDIA / CAROUSEL -->
+      <div class="modal-media" id="projectModalMedia">
+        <div class="modal-image-wrapper">
           <img id="projectModalImage" alt="" />
+          <button class="carousel-btn carousel-prev" id="projectModalPrev" aria-label="Previous image">‹</button>
+          <button class="carousel-btn carousel-next" id="projectModalNext" aria-label="Next image">›</button>
         </div>
-        <div class="modal-body">
-          <p id="projectModalKicker" class="card-kicker"></p>
-          <h3 id="projectModalTitle"></h3>
-          <p id="projectModalSummary"></p>
-          <p id="projectModalDetails"></p>
-          <ul id="projectModalBullets" class="card-list"></ul>
-        </div>
+        <div class="carousel-count" id="projectModalCount"></div>
+      </div>
+
+      <!-- TEXT -->
+      <div class="modal-body">
+        <p id="projectModalKicker" class="card-kicker"></p>
+        <h3 id="projectModalTitle"></h3>
+        <p id="projectModalSummary"></p>
+        <p id="projectModalDetails"></p>
+        <ul id="projectModalBullets" class="card-list"></ul>
       </div>
     </div>
   </div>
+</div>
 
 
   <script src="js/main.js"></script>

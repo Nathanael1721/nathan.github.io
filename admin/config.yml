@@ -30,12 +30,26 @@ collections:
               - { label: "Kicker", name: "kicker", widget: "string", required: false }
               - { label: "Short Summary", name: "summary", widget: "text" }
               - { label: "Details (Modal)", name: "details", widget: "text", required: false }
-              - { label: "Image", name: "image", widget: "image", required: false }
+
+              # NEW: multi-image support
+              - label: "Images"
+                name: "images"
+                widget: "list"
+                required: false
+                field:
+                  label: "Image"
+                  name: "src"
+                  widget: "image"
+
+              # (opsional) tetap simpan single image lama untuk kompatibilitas
+              - { label: "Legacy Image (optional)", name: "image", widget: "image", required: false }
+
               - label: "Bullets"
                 name: "bullets"
                 widget: "list"
                 required: false
                 field: { label: "Item", name: "item", widget: "string" }
+
 
   - name: "research"
     label: "Research & Publications"
