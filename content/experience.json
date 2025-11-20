@@ -6,9 +6,9 @@
       "location": "Jakarta, Indonesia",
       "period": "Feb 2024 – Oct 2024",
       "bullets": [
-        "Membangun CI/CD pipeline dengan Bitbucket Pipelines untuk aplikasi ter-container.",
-        "Deploy ke Kubernetes cluster dan setup monitoring via Grafana & Datadog.",
-        "Ikut implementasi DevSecOps dan dokumentasi server/layanan."
+        "Building a CI/CD pipeline with Bitbucket Pipelines for a containerized application",
+        "Setup & maintain monitoring service using Grafana & Datadog",
+        "Optimizing Bitbucket pipelines for DevSecOps"
       ]
     },
     {
@@ -17,8 +17,8 @@
       "location": "Malang, Indonesia",
       "period": "Aug 2020 – Nov 2020",
       "bullets": [
-        "Riset dan pengembangan komunikasi berbasis LoRa untuk sistem IoT.",
-        "Konfigurasi simplex, half-duplex, dan full-duplex di modul LoRa."
+        "Develop and research LoRa Wan",
+        "Configure Simplex, Half-Duplex, and Full-Duplex communication between LoRa"
       ]
     },
     {
@@ -27,8 +27,9 @@
       "location": "Malang, Indonesia",
       "period": "Jan 2020 – Jan 2021",
       "bullets": [
-        "Monitoring error server menggunakan Grafana, Prometheus, dan Alerta.",
-        "Menyusun tutorial dan membantu pengelolaan Linux server."
+        "Monitoring server errors using Grafana, Prometheus, and Alerta",
+        "Made tutorials about hosting and servers",
+        "Handle and manage Linux server"
       ]
     }
   ]
