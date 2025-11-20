@@ -5,6 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nathanael Tjahyadi | Portfolio</title>
   <meta name="description" content="Portfolio of Nathanael Tjahyadi, IoT, Edge Computing, and DevOps Engineer." />
+  <script>
+    (function () {
+      try {
+        const stored = localStorage.getItem("preferred-theme");
+        const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const theme =
+          stored === "light" || stored === "dark"
+            ? stored
+            : systemDark
+            ? "dark"
+            : "light";
+        document.documentElement.setAttribute("data-theme", theme);
+      } catch (err) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    })();
+  </script>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -27,6 +44,10 @@
           <li><a href="#education">Education</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch theme">
+          <span id="themeToggleIcon">D</span>
+          <span id="themeToggleText">Dark</span>
+        </button>
       </nav>
     </div>
   </header>

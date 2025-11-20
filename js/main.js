@@ -14,6 +14,82 @@ if (navToggle && navList) {
   });
 }
 
+// ---------- Theme toggle ----------
+
+const themeToggleBtn = document.getElementById("themeToggle");
+const themeToggleIcon = document.getElementById("themeToggleIcon");
+const themeToggleText = document.getElementById("themeToggleText");
+const THEME_KEY = "preferred-theme";
+const prefersDarkQuery = typeof window.matchMedia === "function"
+  ? window.matchMedia("(prefers-color-scheme: dark)")
+  : null;
+
+function getStoredTheme() {
+  try {
+    const stored = localStorage.getItem(THEME_KEY);
+    if (stored === "light" || stored === "dark") return stored;
+  } catch (err) {
+    // ignore storage errors
+  }
+  return null;
+}
+
+function applyTheme(theme) {
+  const nextTheme = theme === "light" ? "light" : "dark";
+  document.documentElement.setAttribute("data-theme", nextTheme);
+
+  if (themeToggleIcon) {
+    themeToggleIcon.textContent = nextTheme === "light" ? "L" : "D";
+  }
+  if (themeToggleText) {
+    themeToggleText.textContent = nextTheme === "light" ? "Light" : "Dark";
+  }
+  if (themeToggleBtn) {
+    const target = nextTheme === "light" ? "dark" : "light";
+    themeToggleBtn.setAttribute("aria-label", `Switch to ${target} mode`);
+  }
+
+  return nextTheme;
+}
+
+function initTheme() {
+  const stored = getStoredTheme();
+  const systemPrefersDark = prefersDarkQuery?.matches;
+  const initial = stored || (systemPrefersDark ? "dark" : "light");
+  applyTheme(initial);
+
+  if (prefersDarkQuery?.addEventListener) {
+    prefersDarkQuery.addEventListener("change", (event) => {
+      if (getStoredTheme()) return;
+      applyTheme(event.matches ? "dark" : "light");
+    });
+  } else if (prefersDarkQuery?.addListener) {
+    prefersDarkQuery.addListener((event) => {
+      if (getStoredTheme()) return;
+      applyTheme(event.matches ? "dark" : "light");
+    });
+  }
+}
+
+if (themeToggleBtn) {
+  themeToggleBtn.addEventListener("click", () => {
+    const current =
+      document.documentElement.getAttribute("data-theme") === "light"
+        ? "light"
+        : "dark";
+    const next = current === "light" ? "dark" : "light";
+    applyTheme(next);
+
+    try {
+      localStorage.setItem(THEME_KEY, next);
+    } catch (err) {
+      // ignore storage errors
+    }
+  });
+}
+
+initTheme();
+
 // ---------- Dynamic year ----------
 const yearSpan = document.getElementById("year");
 if (yearSpan) {
