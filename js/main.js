@@ -14,81 +14,45 @@ if (navToggle && navList) {
   });
 }
 
-// ---------- Theme toggle ----------
-
+// ---------- Theme toggle (slider sun / moon) ----------
+const rootEl = document.documentElement;
 const themeToggleBtn = document.getElementById("themeToggle");
-const themeToggleIcon = document.getElementById("themeToggleIcon");
-const themeToggleText = document.getElementById("themeToggleText");
-const THEME_KEY = "preferred-theme";
-const prefersDarkQuery = typeof window.matchMedia === "function"
-  ? window.matchMedia("(prefers-color-scheme: dark)")
-  : null;
-
-function getStoredTheme() {
-  try {
-    const stored = localStorage.getItem(THEME_KEY);
-    if (stored === "light" || stored === "dark") return stored;
-  } catch (err) {
-    // ignore storage errors
-  }
-  return null;
-}
+const THEME_STORAGE_KEY = "theme";
 
 function applyTheme(theme) {
-  const nextTheme = theme === "light" ? "light" : "dark";
-  document.documentElement.setAttribute("data-theme", nextTheme);
-
-  if (themeToggleIcon) {
-    themeToggleIcon.textContent = nextTheme === "light" ? "L" : "D";
+  const value = theme === "light" ? "light" : "dark";
+  rootEl.setAttribute("data-theme", value);
+  try {
+    localStorage.setItem(THEME_STORAGE_KEY, value);
+  } catch (_) {
+    // abaikan error storage
   }
-  if (themeToggleText) {
-    themeToggleText.textContent = nextTheme === "light" ? "Light" : "Dark";
-  }
-  if (themeToggleBtn) {
-    const target = nextTheme === "light" ? "dark" : "light";
-    themeToggleBtn.setAttribute("aria-label", `Switch to ${target} mode`);
-  }
-
-  return nextTheme;
 }
 
-function initTheme() {
-  const stored = getStoredTheme();
-  const systemPrefersDark = prefersDarkQuery?.matches;
-  const initial = stored || (systemPrefersDark ? "dark" : "light");
+// inisialisasi theme dari localStorage / prefers-color-scheme
+(function initTheme() {
+  let stored = null;
+  try {
+    stored = localStorage.getItem(THEME_STORAGE_KEY);
+  } catch (_) {
+    stored = null;
+  }
+
+  const prefersDark =
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  const initial = stored || (prefersDark ? "dark" : "light");
   applyTheme(initial);
-
-  if (prefersDarkQuery?.addEventListener) {
-    prefersDarkQuery.addEventListener("change", (event) => {
-      if (getStoredTheme()) return;
-      applyTheme(event.matches ? "dark" : "light");
-    });
-  } else if (prefersDarkQuery?.addListener) {
-    prefersDarkQuery.addListener((event) => {
-      if (getStoredTheme()) return;
-      applyTheme(event.matches ? "dark" : "light");
-    });
-  }
-}
+})();
 
 if (themeToggleBtn) {
   themeToggleBtn.addEventListener("click", () => {
-    const current =
-      document.documentElement.getAttribute("data-theme") === "light"
-        ? "light"
-        : "dark";
-    const next = current === "light" ? "dark" : "light";
+    const current = rootEl.getAttribute("data-theme") || "dark";
+    const next = current === "dark" ? "light" : "dark";
     applyTheme(next);
-
-    try {
-      localStorage.setItem(THEME_KEY, next);
-    } catch (err) {
-      // ignore storage errors
-    }
   });
 }
-
-initTheme();
 
 // ---------- Dynamic year ----------
 const yearSpan = document.getElementById("year");
@@ -97,10 +61,8 @@ if (yearSpan) {
 }
 
 // ---------- Helpers ----------
-
 function normalizeBullets(list) {
-  if (!list) return [];
-  if (!Array.isArray(list)) return [];
+  if (!list || !Array.isArray(list)) return [];
   return list
     .map((item) => {
       if (typeof item === "string") return item;
@@ -113,12 +75,10 @@ function normalizeBullets(list) {
 function normalizeImages(item) {
   const imgs = [];
 
-  // single legacy image
   if (item.image) {
     imgs.push(item.image);
   }
 
-  // new list of images
   if (Array.isArray(item.images)) {
     item.images.forEach((img) => {
       if (typeof img === "string") {
@@ -134,7 +94,6 @@ function normalizeImages(item) {
 }
 
 // ---------- Modal state & elements ----------
-
 const projectModal = document.getElementById("projectModal");
 const projectModalBackdrop = document.getElementById("projectModalBackdrop");
 const projectModalClose = document.getElementById("projectModalClose");
@@ -218,7 +177,6 @@ function closeProjectModal() {
   projectModal.setAttribute("aria-hidden", "true");
 }
 
-// modal events
 if (projectModalBackdrop) {
   projectModalBackdrop.addEventListener("click", closeProjectModal);
 }
@@ -251,7 +209,6 @@ if (modalNext) {
 }
 
 // ---------- Projects (cards + thumbnails) ----------
-
 async function loadProjects() {
   const container = document.getElementById("projectsGrid");
   if (!container) return;
@@ -311,7 +268,6 @@ async function loadProjects() {
 }
 
 // ---------- Research ----------
-
 async function loadResearch() {
   const container = document.getElementById("researchList");
   if (!container) return;
@@ -362,7 +318,6 @@ async function loadResearch() {
 }
 
 // ---------- Experience ----------
-
 async function loadExperience() {
   const container = document.getElementById("experienceTimeline");
   if (!container) return;
@@ -408,7 +363,6 @@ async function loadExperience() {
 }
 
 // ---------- Education ----------
-
 async function loadEducation() {
   const container = document.getElementById("educationTimeline");
   if (!container) return;
@@ -452,7 +406,6 @@ async function loadEducation() {
 }
 
 // ---------- Init ----------
-
 document.addEventListener("DOMContentLoaded", () => {
   loadProjects();
   loadResearch();
