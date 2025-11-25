@@ -649,6 +649,18 @@ a:hover {
   margin-top: 0.6rem;
 }
 
+.modal-actions {
+  margin-top: 0.8rem;
+  display: none;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.modal-actions .btn {
+  min-width: 0;
+  font-size: 0.85rem;
+}
+
 .modal-close {
   position: absolute;
   top: 0.6rem;

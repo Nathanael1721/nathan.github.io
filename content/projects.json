@@ -11,6 +11,7 @@
         "Local buffer when disconnected (MySQL)",
         "Grafana dashboard for visualization"
       ],
+      "figmaLink": "",
       "image": "/assets/uploads/20250116_92749ambygpsmapcamera.jpg",
       "images": [
         "/assets/uploads/20250116_92749ambygpsmapcamera.jpg",
@@ -27,10 +28,24 @@
         "GPS-denied flight experiments",
         "Autonomous mission and telemetry"
       ],
+      "figmaLink": "",
       "image": "/assets/uploads/img_4692.jpg",
       "images": [
         "/assets/uploads/img_4692.jpg"
       ]
+    },
+    {
+      "title": "Creative & UI/UX Showcase",
+      "kicker": "Design Systems • UI/UX • Visual Strategy",
+      "summary": "Curated set of graphic design explorations and interface prototypes.",
+      "details": "Single Figma file containing poster explorations, landing pages, and product UI flows. Updates to the Figma file automatically keep this case study current without redeploying the site.",
+      "bullets": [
+        "Branding studies and poster layouts",
+        "Mobile & web UI design systems",
+        "Interactive prototype walk-throughs"
+      ],
+      "figmaLink": "https://www.figma.com/file/your-figma-link",
+      "images": []
     }
   ]
 }
