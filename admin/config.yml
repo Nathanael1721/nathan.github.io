@@ -148,3 +148,25 @@ collections:
                   label: "Item"
                   name: "item"
                   widget: "string"
+
+  # --------------------------
+  # HONORS
+  # --------------------------
+  - name: "honors"
+    label: "Honors & Achievements"
+    files:
+      - file: "content/honors.json"
+        label: "Honors List"
+        name: "honors"
+        extension: "json"
+        format: "json"
+        fields:
+          - label: "Entries"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Issuer", name: "issuer", widget: "string" }
+              - { label: "Association", name: "association", widget: "string", required: false }
+              - { label: "Period", name: "period", widget: "string", required: false }
+              - { label: "Summary", name: "summary", widget: "text", required: false }

@@ -128,6 +128,15 @@ a:hover {
   background: var(--section-alt-bg);
 }
 
+.section-header {
+  margin-bottom: 1.5rem;
+}
+
+.section-header p {
+  margin: 0.2rem 0 0;
+  color: var(--fg-muted);
+}
+
 /* Header / Nav */
 
 .site-header {
@@ -676,6 +685,41 @@ a:hover {
   color: var(--accent);
 }
 
+.honors-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-auto-rows: 1fr;
+}
+
+.honor-card {
+  background: var(--surface-alt);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-lg);
+  padding: 1.2rem;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  height: 100%;
+}
+
+.honor-title {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.honor-meta {
+  font-size: 0.85rem;
+  color: var(--fg-muted);
+}
+
+.honor-summary {
+  margin: 0.2rem 0 0;
+  color: var(--fg-muted);
+  font-size: 0.9rem;
+}
+
 /* Tags */
 
 .tag-row {
@@ -716,6 +760,7 @@ a:hover {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
 
 @media (max-width: 800px) {
   .modal-dialog {

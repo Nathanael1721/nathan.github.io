@@ -232,7 +232,7 @@ async function loadProjects() {
     const items = Array.isArray(data.items) ? data.items : [];
 
     container.innerHTML = items
-      .map((item, index) => {
+      .map((item) => {
         const title = item.title || "";
         const kicker = item.kicker || "";
         const summary = item.summary || "";
@@ -417,10 +417,60 @@ async function loadEducation() {
   }
 }
 
+// ---------- Honors ----------
+async function loadHonors() {
+  const container = document.getElementById("honorsGrid");
+  if (!container) return;
+
+  try {
+    const res = await fetch("content/honors.json", { cache: "no-store" });
+    if (!res.ok) throw new Error("Failed to load honors");
+    const data = await res.json();
+    const items = Array.isArray(data.items) ? data.items : [];
+
+    container.innerHTML = items
+      .map((item, index) => {
+        const issuer = item.issuer ? `<span>${item.issuer}</span>` : "";
+        const period = item.period ? `<span>${item.period}</span>` : "";
+        const association = item.association
+          ? `<span>${item.association}</span>`
+          : "";
+
+        const metaSegments = [issuer, period].filter(Boolean).join(" · ");
+        const associationLine = association
+          ? `<p class="honor-meta">${association}</p>`
+          : "";
+
+        return `
+          <article class="honor-card">
+            <h3 class="honor-title">${item.title || ""}</h3>
+            ${
+              metaSegments
+                ? `<p class="honor-meta">${metaSegments}</p>`
+                : ""
+            }
+            ${associationLine}
+            ${
+              item.summary
+                ? `<p class="honor-summary">${item.summary}</p>`
+                : ""
+            }
+          </article>
+        `;
+      })
+      .join("");
+  } catch (err) {
+    console.error(err);
+    container.innerHTML =
+      '<p style="color:#f87171;font-size:0.9rem;">Failed to load honors.</p>';
+  }
+}
+
 // ---------- Init ----------
 document.addEventListener("DOMContentLoaded", () => {
   loadProjects();
   loadResearch();
   loadExperience();
   loadEducation();
+  loadHonors();
 });
