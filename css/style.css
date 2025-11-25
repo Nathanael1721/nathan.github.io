@@ -835,3 +835,73 @@ html[data-theme="light"] .theme-toggle-icon--sun {
 html[data-theme="light"] .theme-toggle-icon--moon {
   opacity: 0.4;
 }
+
+/* Theme toggle slider */
+
+.theme-toggle {
+  margin-left: 1.25rem;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle-track {
+  position: relative;
+  width: 70px;
+  height: 28px;
+  border-radius: 999px;
+  background: radial-gradient(circle at top, #1f2336, #090b14);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.theme-toggle-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: var(--accent);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease;
+}
+
+/* posisi thumb untuk light / dark */
+[data-theme="dark"] .theme-toggle-thumb {
+  transform: translateX(0);
+}
+
+[data-theme="light"] .theme-toggle-thumb {
+  transform: translateX(36px); /* sesuaikan jika kurang pas */
+}
+
+.theme-toggle-icon {
+  font-size: 0.9rem;
+  color: var(--fg-muted);
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+/* highlight icon sesuai mode */
+[data-theme="dark"] .theme-toggle-icon--moon {
+  opacity: 1;
+}
+[data-theme="dark"] .theme-toggle-icon--sun {
+  opacity: 0.3;
+}
+
+[data-theme="light"] .theme-toggle-icon--sun {
+  opacity: 1;
+}
+[data-theme="light"] .theme-toggle-icon--moon {
+  opacity: 0.3;
+}
