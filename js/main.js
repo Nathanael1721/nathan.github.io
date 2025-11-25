@@ -232,7 +232,7 @@ async function loadProjects() {
     const items = Array.isArray(data.items) ? data.items : [];
 
     container.innerHTML = items
-      .map((item) => {
+      .map((item, index) => {
         const title = item.title || "";
         const kicker = item.kicker || "";
         const summary = item.summary || "";
