@@ -248,23 +248,21 @@ async function loadProjects() {
 
         return `
           <article class="card card-clickable" data-index="${index}">
-            ${
-              thumb
-                ? `<div class="card-image-wrapper">
+            ${thumb
+            ? `<div class="card-image-wrapper">
                      <img src="${thumb}" alt="${title} thumbnail">
                    </div>`
-                : ""
-            }
+            : ""
+          }
             ${kicker ? `<p class="card-kicker">${kicker}</p>` : ""}
             <h3>${title}</h3>
             ${summary ? `<p>${summary}</p>` : ""}
-            ${
-              bullets.length
-                ? `<ul class="card-list">
+            ${bullets.length
+            ? `<ul class="card-list">
                      ${bullets.map((b) => `<li>${b}</li>`).join("")}
                    </ul>`
-                : ""
-            }
+            : ""
+          }
           </article>
         `;
       })
@@ -311,17 +309,15 @@ async function loadResearch() {
           ${item.venue || ""}${item.year ? " · " + item.year : ""}
         </p>
         <p>${item.summary || ""}</p>
-        ${
-          item.link
-            ? `<p><a href="${item.link}" target="_blank" rel="noopener noreferrer">View publication</a></p>`
-            : ""
+        ${item.link
+          ? `<p><a href="${item.link}" target="_blank" rel="noopener noreferrer">View publication</a></p>`
+          : ""
         }
-        ${
-          tagsHtml
-            ? `<div class="tag-row">
+        ${tagsHtml
+          ? `<div class="tag-row">
                  ${tagsHtml}
                </div>`
-            : ""
+          : ""
         }
       `;
 
@@ -361,12 +357,11 @@ async function loadExperience() {
         <p class="timeline-meta">
           ${item.period || ""}${item.location ? " | " + item.location : ""}
         </p>
-        ${
-          bulletsHtml
-            ? `<ul>
+        ${bulletsHtml
+          ? `<ul>
                  ${bulletsHtml}
                </ul>`
-            : ""
+          : ""
         }
       `;
 
@@ -406,11 +401,10 @@ async function loadEducation() {
             <p class="timeline-meta">
               ${[period, location].filter(Boolean).join(" · ")}
             </p>
-            ${
-              bullets.length
-                ? `<ul>${bullets.map((b) => `<li>${b}</li>`).join("")}</ul>`
-                : ""
-            }
+            ${bullets.length
+            ? `<ul>${bullets.map((b) => `<li>${b}</li>`).join("")}</ul>`
+            : ""
+          }
           </article>
         `;
       })
@@ -433,7 +427,12 @@ async function loadHonors() {
     const data = await res.json();
     const items = Array.isArray(data.items) ? data.items : [];
 
-    container.innerHTML = items
+    // Determine if we are on the dedicated honors page
+    const isHonorsPage = window.location.pathname.includes("honors.html");
+    // If not on honors page, limit to first 3
+    const displayItems = isHonorsPage ? items : items.slice(0, 3);
+
+    container.innerHTML = displayItems
       .map((item, index) => {
         const issuer = item.issuer ? `<span>${item.issuer}</span>` : "";
         const period = item.period ? `<span>${item.period}</span>` : "";
@@ -449,17 +448,15 @@ async function loadHonors() {
         return `
           <article class="honor-card">
             <h3 class="honor-title">${item.title || ""}</h3>
-            ${
-              metaSegments
-                ? `<p class="honor-meta">${metaSegments}</p>`
-                : ""
-            }
+            ${metaSegments
+            ? `<p class="honor-meta">${metaSegments}</p>`
+            : ""
+          }
             ${associationLine}
-            ${
-              item.summary
-                ? `<p class="honor-summary">${item.summary}</p>`
-                : ""
-            }
+            ${item.summary
+            ? `<p class="honor-summary">${item.summary}</p>`
+            : ""
+          }
           </article>
         `;
       })

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Honors & Achievements | Nathanael Tjahyadi</title>
+    <meta name="description" content="Honors, awards, and achievements of Nathanael Tjahyadi." />
+    <script>
+        (function () {
+            try {
+                const stored = localStorage.getItem("preferred-theme");
+                const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                const theme =
+                    stored === "light" || stored === "dark"
+                        ? stored
+                        : systemDark
+                            ? "dark"
+                            : "light";
+                document.documentElement.setAttribute("data-theme", theme);
+            } catch (err) {
+                document.documentElement.setAttribute("data-theme", "dark");
+            }
+        })();
+    </script>
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+        .honors-page-header {
+            padding-top: 6rem;
+            padding-bottom: 2rem;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header / Nav -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="logo">
+                <a href="index.html">Nathan</a>
+            </div>
+            <nav class="nav">
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                    ☰
+                </button>
+                <ul class="nav-list" id="navList">
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#skills">Skills</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="index.html#research">Research</a></li>
+                    <li><a href="index.html#experience">Experience</a></li>
+                    <li><a href="index.html#education">Education</a></li>
+                    <li><a href="honors.html" class="active">Honors</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+
+                <!-- SLIDER THEME TOGGLE -->
+                <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle color theme">
+                    <span class="theme-toggle-track">
+                        <span class="theme-toggle-thumb"></span>
+                        <span class="theme-toggle-icon theme-toggle-icon--moon">☾</span>
+                        <span class="theme-toggle-icon theme-toggle-icon--sun">☼</span>
+                    </span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main id="top">
+        <!-- Honors Header -->
+        <section class="section honors-page-header">
+            <div class="container">
+                <h1>Honors & Achievements</h1>
+                <p>Competitions, scholarships, and awards I received during school and university.</p>
+            </div>
+        </section>
+
+        <!-- Honors Grid -->
+        <section id="honors" class="section">
+            <div class="container">
+                <div id="honorsGrid" class="honors-grid">
+                    <!-- Filled by JS (all items) -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact CTA -->
+        <section class="section section-alt">
+            <div class="container" style="text-align: center;">
+                <h2>Have an opportunity?</h2>
+                <br>
+                <a href="index.html#contact" class="btn primary-btn">Get in Touch</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <span>© <span id="year"></span> Nathanael Tjahyadi</span>
+            <span>Built with HTML, CSS, and vanilla JS</span>
+        </div>
+    </footer>
+
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
