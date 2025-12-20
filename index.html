@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,8 +15,8 @@
           stored === "light" || stored === "dark"
             ? stored
             : systemDark
-            ? "dark"
-            : "light";
+              ? "dark"
+              : "light";
         document.documentElement.setAttribute("data-theme", theme);
       } catch (err) {
         document.documentElement.setAttribute("data-theme", "dark");
@@ -24,44 +25,40 @@
   </script>
   <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
   <!-- Header / Nav -->
-<header class="site-header">
-  <div class="container header-inner">
-    <div class="logo">
-      <a href="#top">Nathan</a>
-    </div>
-    <nav class="nav">
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-        ☰
-      </button>
-      <ul class="nav-list" id="navList">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#research">Research</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#honors">Honors</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <a href="#top">Nathan</a>
+      </div>
+      <nav class="nav">
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+          ☰
+        </button>
+        <ul class="nav-list" id="navList">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#honors">Honors</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
 
-      <!-- SLIDER THEME TOGGLE -->
-      <button
-        id="themeToggle"
-        class="theme-toggle"
-        type="button"
-        aria-label="Toggle color theme"
-      >
-        <span class="theme-toggle-track">
-          <span class="theme-toggle-thumb"></span>
-          <span class="theme-toggle-icon theme-toggle-icon--moon">☾</span>
-          <span class="theme-toggle-icon theme-toggle-icon--sun">☼</span>
-        </span>
-      </button>
-    </nav>
-  </div>
-</header>
+        <!-- SLIDER THEME TOGGLE -->
+        <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle color theme">
+          <span class="theme-toggle-track">
+            <span class="theme-toggle-thumb"></span>
+            <span class="theme-toggle-icon theme-toggle-icon--moon">☾</span>
+            <span class="theme-toggle-icon theme-toggle-icon--sun">☼</span>
+          </span>
+        </button>
+      </nav>
+    </div>
+  </header>
 
 
 
@@ -172,6 +169,9 @@
         <div id="projectsGrid" class="grid-3">
           <!-- Filled by JS -->
         </div>
+        <div style="text-align: center; margin-top: 2rem;">
+          <a href="projects.html" class="btn primary-btn">See More Projects</a>
+        </div>
       </div>
     </section>
 
@@ -234,8 +234,7 @@
           <div>
             <h3>LinkedIn</h3>
             <p>
-              <a href="https://www.linkedin.com/in/nathanael-tjahyadi/"
-                 target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/in/nathanael-tjahyadi/" target="_blank" rel="noopener noreferrer">
                 LinkedIn
               </a>
             </p>
@@ -285,13 +284,7 @@
           <p id="projectModalDetails"></p>
           <ul id="projectModalBullets" class="card-list"></ul>
           <div id="projectModalActions" class="modal-actions">
-            <a
-              id="projectModalFigma"
-              class="btn primary-btn"
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a id="projectModalFigma" class="btn primary-btn" href="#" target="_blank" rel="noopener noreferrer">
               View Figma Case Study
             </a>
           </div>
@@ -303,4 +296,5 @@
   <!-- Main JS -->
   <script src="js/main.js"></script>
 </body>
+
 </html>

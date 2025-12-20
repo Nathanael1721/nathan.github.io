@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects | Nathanael Tjahyadi</title>
+    <meta name="description" content="All projects by Nathanael Tjahyadi." />
+    <script>
+        (function () {
+            try {
+                const stored = localStorage.getItem("preferred-theme");
+                const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                const theme =
+                    stored === "light" || stored === "dark"
+                        ? stored
+                        : systemDark
+                            ? "dark"
+                            : "light";
+                document.documentElement.setAttribute("data-theme", theme);
+            } catch (err) {
+                document.documentElement.setAttribute("data-theme", "dark");
+            }
+        })();
+    </script>
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+        /* Inline adjustment for projects page spacing if needed */
+        .projects-page-header {
+            padding-top: 6rem;
+            padding-bottom: 2rem;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header / Nav -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="logo">
+                <a href="index.html">Nathan</a>
+            </div>
+            <nav class="nav">
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                    ☰
+                </button>
+                <ul class="nav-list" id="navList">
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#skills">Skills</a></li>
+                    <li><a href="projects.html" class="active">Projects</a></li>
+                    <li><a href="index.html#research">Research</a></li>
+                    <li><a href="index.html#experience">Experience</a></li>
+                    <li><a href="index.html#education">Education</a></li>
+                    <li><a href="index.html#honors">Honors</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+
+                <!-- SLIDER THEME TOGGLE -->
+                <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle color theme">
+                    <span class="theme-toggle-track">
+                        <span class="theme-toggle-thumb"></span>
+                        <span class="theme-toggle-icon theme-toggle-icon--moon">☾</span>
+                        <span class="theme-toggle-icon theme-toggle-icon--sun">☼</span>
+                    </span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main id="top">
+        <!-- Projects Header -->
+        <section class="section projects-page-header">
+            <div class="container">
+                <h1>All Projects</h1>
+                <p>A complete list of my works in IoT, Edge Computing, and DevOps.</p>
+            </div>
+        </section>
+
+        <!-- Projects Grid -->
+        <section id="projects" class="section">
+            <div class="container">
+                <div id="projectsGrid" class="grid-3">
+                    <!-- Filled by JS (all items) -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact CTA -->
+        <section class="section section-alt">
+            <div class="container" style="text-align: center;">
+                <h2>Interested in collaborating?</h2>
+                <br>
+                <a href="index.html#contact" class="btn primary-btn">Get in Touch</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <span>© <span id="year"></span> Nathanael Tjahyadi</span>
+            <span>Built with HTML, CSS, and vanilla JS</span>
+        </div>
+    </footer>
+
+    <!-- Project Modal (single instance, used by JS) -->
+    <div id="projectModal" class="modal" aria-hidden="true">
+        <div class="modal-backdrop" id="projectModalBackdrop"></div>
+        <div class="modal-dialog">
+            <button class="modal-close" id="projectModalClose" aria-label="Close">×</button>
+
+            <div class="modal-inner">
+                <!-- MEDIA / CAROUSEL -->
+                <div class="modal-media" id="projectModalMedia">
+                    <div class="modal-image-wrapper">
+                        <img id="projectModalImage" alt="" />
+                        <button class="carousel-btn carousel-prev" id="projectModalPrev"
+                            aria-label="Previous image">‹</button>
+                        <button class="carousel-btn carousel-next" id="projectModalNext"
+                            aria-label="Next image">›</button>
+                    </div>
+                    <div class="carousel-count" id="projectModalCount"></div>
+                </div>
+
+                <!-- TEXT -->
+                <div class="modal-body">
+                    <p id="projectModalKicker" class="card-kicker"></p>
+                    <h3 id="projectModalTitle"></h3>
+                    <p id="projectModalSummary"></p>
+                    <p id="projectModalDetails"></p>
+                    <ul id="projectModalBullets" class="card-list"></ul>
+                    <div id="projectModalActions" class="modal-actions">
+                        <a id="projectModalFigma" class="btn primary-btn" href="#" target="_blank"
+                            rel="noopener noreferrer">
+                            View Figma Case Study
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

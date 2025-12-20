@@ -231,7 +231,12 @@ async function loadProjects() {
     const data = await res.json();
     const items = Array.isArray(data.items) ? data.items : [];
 
-    container.innerHTML = items
+    // Determine if we are on the dedicated projects page
+    const isProjectsPage = window.location.pathname.includes("projects.html");
+    // If not on projects page, limit to first 3
+    const displayItems = isProjectsPage ? items : items.slice(0, 3);
+
+    container.innerHTML = displayItems
       .map((item, index) => {
         const title = item.title || "";
         const kicker = item.kicker || "";
@@ -268,7 +273,7 @@ async function loadProjects() {
     const cards = container.querySelectorAll(".card-clickable");
     cards.forEach((card, idx) => {
       card.addEventListener("click", () => {
-        const item = items[idx];
+        const item = displayItems[idx];
         if (item) openProjectModal(item);
       });
     });
