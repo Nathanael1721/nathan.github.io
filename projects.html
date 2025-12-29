@@ -9,7 +9,10 @@
     <script>
         (function () {
             try {
-                const stored = localStorage.getItem("preferred-theme");
+                const key = "theme";
+                const legacyKey = "preferred-theme";
+                let stored = localStorage.getItem(key);
+                if (!stored) stored = localStorage.getItem(legacyKey);
                 const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
                 const theme =
                     stored === "light" || stored === "dark"
@@ -137,6 +140,10 @@
                         <a id="projectModalFigma" class="btn primary-btn" href="#" target="_blank"
                             rel="noopener noreferrer">
                             View Figma Case Study
+                        </a>
+                        <a id="projectModalSite" class="btn primary-btn" href="#" target="_blank"
+                            rel="noopener noreferrer">
+                            Visit Website
                         </a>
                     </div>
                 </div>

@@ -113,6 +113,7 @@ const modalPrev = document.getElementById("projectModalPrev");
 const modalNext = document.getElementById("projectModalNext");
 const modalActions = document.getElementById("projectModalActions");
 const modalFigmaLink = document.getElementById("projectModalFigma");
+const modalSiteLink = document.getElementById("projectModalSite");
 
 let currentImages = [];
 let currentImageIndex = 0;
@@ -180,14 +181,27 @@ function openProjectModal(item) {
     modalBullets.style.display = "none";
   }
 
-  if (modalActions && modalFigmaLink) {
-    if (item.figmaLink) {
-      modalActions.style.display = "flex";
+  if (modalActions && modalFigmaLink && modalSiteLink) {
+    const hasFigma = !!item.figmaLink;
+    const hasSite = !!item.link;
+
+    if (hasFigma) {
       modalFigmaLink.href = item.figmaLink;
+      modalFigmaLink.style.display = "inline-flex";
     } else {
-      modalActions.style.display = "none";
       modalFigmaLink.removeAttribute("href");
+      modalFigmaLink.style.display = "none";
     }
+
+    if (hasSite) {
+      modalSiteLink.href = item.link;
+      modalSiteLink.style.display = "inline-flex";
+    } else {
+      modalSiteLink.removeAttribute("href");
+      modalSiteLink.style.display = "none";
+    }
+
+    modalActions.style.display = hasFigma || hasSite ? "flex" : "none";
   }
 
   currentImages = normalizeImages(item);

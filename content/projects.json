@@ -99,6 +99,24 @@
       "images": [
         "/assets/uploads/cicd%20implementation.drawio.png"
       ]
+    },
+    {
+      "title": "Capy Language Course Website",
+      "kicker": "Web • Company Profile • Static Site",
+      "summary": "Static company profile website for a language course, focused on clear program info and enrollment CTA.",
+      "details": "Built a lightweight marketing site for a language course, highlighting programs, benefits, and contact details in a fast, mobile-friendly layout.",
+      "tags": [
+        "Design"
+      ],
+      "bullets": [
+        "Static landing page for course overview",
+        "Mobile-first layout with clear CTAs",
+        "Fast load time and simple navigation"
+      ],
+      "link": "https://capylanguagecourse.vercel.app/",
+      "figmaLink": "",
+      "image": "",
+      "images": []
     }
   ]
 }
