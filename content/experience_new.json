@@ -1,0 +1,92 @@
+[
+    {
+        "role": "Laboratory Assistant",
+        "org": "Telkom University",
+        "location": "Surabaya, East Java, Indonesia",
+        "period": "Aug 2023 - Feb 2025",
+        "bullets": [
+            "Organize items in the laboratory",
+            "Maintenance of items in the laboratory",
+            "Participate in research activities",
+            "Create designs related to laboratory activities and events"
+        ]
+    },
+    {
+        "role": "Student Staff",
+        "org": "Telkom University",
+        "location": "Surabaya, East Java, Indonesia",
+        "period": "Jul 2023 - Feb 2025",
+        "bullets": [
+            "Organize campus rooms and facilities",
+            "Check the quality of campus assets",
+            "Create designs that support campus facilities and infrastructure"
+        ]
+    },
+    {
+        "role": "Assistant Lecturer",
+        "org": "Telkom University",
+        "location": "Surabaya, East Java, Indonesia",
+        "period": "Sep 2023 - Jan 2025",
+        "bullets": [
+            "Teaches industrial automation with Omron PLC",
+            "Teaches embedded systems and microprocessors"
+        ]
+    },
+    {
+        "role": "Digital Team - MDT",
+        "org": "Institut Teknologi Telkom Surabaya",
+        "location": "Surabaya, East Java, Indonesia",
+        "period": "Jan 2022 - Mar 2023",
+        "bullets": [
+            "Create videos for IT Telkom Surabaya's Youtube/Instagram",
+            "Documenting events (Photo & Videography)",
+            "Editing video using Adobe Premiere Pro and After Effects",
+            "Broadcast event on Youtube, Zoom, and Instagram",
+            "Best member (employee) for April 2022"
+        ]
+    },
+    {
+        "role": "Assistant Lecturer (Python)",
+        "org": "Institut Teknologi Telkom Surabaya",
+        "location": "Surabaya, East Java, Indonesia",
+        "period": "Oct 2022 - Jan 2023",
+        "bullets": [
+            "Help lecturers in teaching Python programming language"
+        ]
+    },
+    {
+        "role": "DevOps Engineer Intern",
+        "org": "PT Telekomunikasi Indonesia",
+        "location": "Jakarta, Indonesia",
+        "period": "Feb 2024 – Oct 2024",
+        "bullets": [
+            "Create CI/CD Pipeline",
+            "Deploy Containerization & Kubernetes Cluster",
+            "Setup & maintain monitoring service using Grafana & Datadog",
+            "DevSecOps implementation",
+            "Documenting server & service",
+            "Optimizing Bitbucket pipelines for DevSecOps"
+        ]
+    },
+    {
+        "role": "IoT Programmer Intern",
+        "org": "PT Vascomm Solusi Teknologi",
+        "location": "Malang, Indonesia",
+        "period": "Aug 2020 – Nov 2020",
+        "bullets": [
+            "Develop and research LoRa Wan",
+            "Configure Simplex, Half-Duplex, and Full-Duplex communication between LoRa"
+        ]
+    },
+    {
+        "role": "Teaching Factory",
+        "org": "PT Beon Intermedia (Jagoan Hosting)",
+        "location": "Malang, Indonesia",
+        "period": "Jan 2020 – Jan 2021",
+        "bullets": [
+            "Monitoring server errors using Grafana, Prometheus, and Alerta",
+            "Made tutorials about hosting and servers",
+            "Handle and manage Linux server"
+        ]
+    }
+]

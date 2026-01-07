@@ -195,6 +195,7 @@ function openProjectModal(item) {
 
     if (hasSite) {
       modalSiteLink.href = item.link;
+      modalSiteLink.textContent = item.linkLabel || "Visit Website";
       modalSiteLink.style.display = "inline-flex";
     } else {
       modalSiteLink.removeAttribute("href");
@@ -351,8 +352,8 @@ async function loadProjects() {
               activeTag === "All"
                 ? items
                 : items.filter((item) =>
-                    normalizeBullets(item.tags).includes(activeTag)
-                  );
+                  normalizeBullets(item.tags).includes(activeTag)
+                );
             renderProjectCards(filtered);
           });
         });
