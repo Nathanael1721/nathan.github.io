@@ -1,6 +1,48 @@
 {
   "items": [
     {
+      "title": "Self Hosted Chat-GPT",
+      "kicker": "Open Web UI • Docker • Nginx • VPS Tunneling",
+      "summary": "Private ChatGPT instance hosted locally and exposed via VPS tunneling.",
+      "details": "Self-hosted Open Web UI instance connected to OpenAI API. Deployed on a local server using Docker, with Nginx reverse proxy and secure tunneling through a VPS gateway to allow public internet access to the local instance.",
+      "tags": [
+        "DevOps",
+        "Web"
+      ],
+      "bullets": [
+        "Local Server Deployment with Docker",
+        "VPS Tunneling for Public Access",
+        "Nginx Reverse Proxy",
+        "Open Web UI & OpenAI API Integration"
+      ],
+      "link": "https://gpt.itsnathan.id",
+      "linkLabel": "Visit App",
+      "figmaLink": "",
+      "image": "",
+      "images": []
+    },
+    {
+      "title": "CapySnack Store",
+      "kicker": "Next.js • Google Sheet & Apps Scripts • Vercel",
+      "summary": "Simple static online shop platform using Google Sheets as database and Stock Management.",
+      "details": "A production-ready micro e-commerce website built with Next.js. It uses Google Sheets as a CMS and database via Apps Script. Features include product listing, stock management in sheets, and automated WhatsApp order generation.",
+      "tags": [
+        "Web",
+        "Fullstack"
+      ],
+      "bullets": [
+        "Google Sheets as Database & CMS",
+        "Automated WhatsApp Ordering",
+        "Real-time Stock Management",
+        "Next.js Static Deployment"
+      ],
+      "link": "https://capysnack.vercel.app/",
+      "linkLabel": "Visit Store",
+      "figmaLink": "",
+      "image": "",
+      "images": []
+    },
+    {
       "title": "Edge Computing for Smart Agriculture",
       "kicker": "Edge Computing • IoT • Raspberry Pi",
       "summary": "Edge system for processing sensor data on the ground, buffering when the internet is down, and synchronizing to the cloud.",
@@ -108,7 +150,8 @@
       "summary": "Static company profile website for a language course, focused on clear program info and enrollment CTA.",
       "details": "Built a lightweight marketing site for a language course, highlighting programs, benefits, and contact details in a fast, mobile-friendly layout.",
       "tags": [
-        "Design"
+        "Web",
+        "Fullstack"
       ],
       "bullets": [
         "Static landing page for course overview",
